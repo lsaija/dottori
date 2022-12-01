@@ -15,7 +15,7 @@ public class DottoreDTO {
 	private Long id;
 	private String nome;
 	private String cognome;
-	@NotBlank(message = "{codiceFiscale.notblank}")
+	@NotBlank(message = "{codiceDottore.notblank}")
 	private String codiceDottore;
 	private String codFiscalePazienteAttualmenteInVisita;
 	private boolean inVisita;
