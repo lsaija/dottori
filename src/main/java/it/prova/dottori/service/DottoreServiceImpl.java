@@ -52,5 +52,26 @@ public class DottoreServiceImpl implements DottoreService {
 		return repository.findByCodiceDottore(codiceDottoreInstance);
 
 	}
+	
+
+	@Override
+	public Dottore verificaDisponibilita(String cd) {
+		return repository.findByCodiceDottore(cd);
+	}
+
+	@Override
+	public Dottore impostaDottore(Dottore dottore) {
+		Dottore result = repository.findByCodiceDottore(dottore.getCodiceDottore());
+		result.setCodFiscalePazienteAttualmenteInVisita(dottore.getCodFiscalePazienteAttualmenteInVisita());
+		return repository.save(result);
+	}
+
+	@Override
+	public Dottore ricovera(Dottore dottore) {
+		Dottore result = repository.findByCodiceDottore(dottore.getCodiceDottore());
+		result.setCodFiscalePazienteAttualmenteInVisita(null);
+		result.setInVisita(false);
+		return repository.save(result);
+	}
 
 }

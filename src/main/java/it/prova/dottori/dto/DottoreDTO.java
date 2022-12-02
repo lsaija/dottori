@@ -25,13 +25,12 @@ public class DottoreDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public DottoreDTO(@NotBlank(message = "{codiceFiscale.notblank}") String codiceDottore) {
+	public DottoreDTO(String codiceDottore) {
 		super();
 		this.codiceDottore = codiceDottore;
 	}
 
-	public DottoreDTO(Long id, String nome, String cognome,
-			@NotBlank(message = "{codiceFiscale.notblank}") String codiceDottore,
+	public DottoreDTO(Long id, String nome, String cognome, String codiceDottore,
 			String codFiscalePazienteAttualmenteInVisita, boolean inVisita, boolean inServizio) {
 		super();
 		this.id = id;
@@ -98,10 +97,10 @@ public class DottoreDTO {
 	public void setInServizio(boolean inServizio) {
 		this.inServizio = inServizio;
 	}
-	
-	public Dottore buildPazienteModel() {
-		Dottore result = new Dottore(this.id, this.nome, this.cognome, this.codiceDottore, this.codFiscalePazienteAttualmenteInVisita,
-				this.inVisita, this.inServizio);
+
+	public Dottore buildDottoreModel() {
+		Dottore result = new Dottore(this.id, this.nome, this.cognome, this.codiceDottore,
+				this.codFiscalePazienteAttualmenteInVisita, this.inVisita, this.inServizio);
 		return result;
 	}
 

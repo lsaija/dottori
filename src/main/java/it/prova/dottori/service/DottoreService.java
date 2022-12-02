@@ -19,4 +19,9 @@ public interface DottoreService {
 
 	Dottore findByCodiceDottore(String codiceDottoreInstance);
 
+	Dottore verificaDisponibilita(String codiceDottoreInstance);
+	
+	Dottore impostaDottore(Dottore dottoreInstance);
+	
+	Dottore ricovera(Dottore dottoreInstance);
 }
