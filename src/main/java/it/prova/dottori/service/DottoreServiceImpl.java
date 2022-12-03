@@ -32,8 +32,10 @@ public class DottoreServiceImpl implements DottoreService {
 	}
 
 	@Override
-	public Dottore inserisciNuovo(Dottore dottoreInstance) {
-		return repository.save(dottoreInstance);
+	public void inserisciNuovo(Dottore dottoreInstance) {
+		dottoreInstance.setInServizio(true);
+		dottoreInstance.setInVisita(false);
+		repository.save(dottoreInstance);
 	}
 
 	@Override
@@ -49,26 +51,26 @@ public class DottoreServiceImpl implements DottoreService {
 
 	@Override
 	public Dottore findByCodiceDottore(String codiceDottoreInstance) {
-		return repository.findByCodiceDottore(codiceDottoreInstance);
+		return repository.caricaDottoreFromCodiceDottore(codiceDottoreInstance);
 
 	}
 	
 
 	@Override
 	public Dottore verificaDisponibilita(String cd) {
-		return repository.findByCodiceDottore(cd);
+		return repository.caricaDottoreFromCodiceDottore(cd);
 	}
 
 	@Override
 	public Dottore impostaDottore(Dottore dottore) {
-		Dottore result = repository.findByCodiceDottore(dottore.getCodiceDottore());
+		Dottore result = repository.caricaDottoreFromCodiceDottore(dottore.getCodiceDottore());
 		result.setCodFiscalePazienteAttualmenteInVisita(dottore.getCodFiscalePazienteAttualmenteInVisita());
 		return repository.save(result);
 	}
 
 	@Override
 	public Dottore ricovera(Dottore dottore) {
-		Dottore result = repository.findByCodiceDottore(dottore.getCodiceDottore());
+		Dottore result = repository.caricaDottoreFromCodiceDottore(dottore.getCodiceDottore());
 		result.setCodFiscalePazienteAttualmenteInVisita(null);
 		result.setInVisita(false);
 		return repository.save(result);

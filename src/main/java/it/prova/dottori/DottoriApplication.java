@@ -13,6 +13,7 @@ public class DottoriApplication implements CommandLineRunner {
 	@Autowired
 	private DottoreService dottoreService;
 	
+	
 	public static void main(String[] args) {
 		SpringApplication.run(DottoriApplication.class, args);
 	}

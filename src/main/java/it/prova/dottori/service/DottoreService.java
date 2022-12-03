@@ -11,7 +11,7 @@ public interface DottoreService {
 
 	Dottore aggiorna(Dottore dottoreInstance);
 
-	Dottore inserisciNuovo(Dottore dottoreInstance);
+	void inserisciNuovo(Dottore dottoreInstance);
 
 	void rimuovi(Long idToRemove);
 
